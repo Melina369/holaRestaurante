@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Empleado</title>
+    <%- include('partials/head')%>
+   </head>
+<body>
+    <%- include('partials/navigation')%>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center my-5">
+
+            <!--FORM-->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div>
+                                <h1>Nuevo Empleado</h1>
+                            </div>
+                            <!--Manda los datos del formulario-->
+                            <div class="form-group">
+                                <!--le paso los datos del titulo y la descripcion que quiero editar desde node -->
+                                <label for="" class="form-label">Nombre:</label>
+                                <input type="text" name="nombre" placeholder="Ingresar Nombre" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Apellido:</label>
+                                <input type="text" name="apellido" placeholder="Ingresar Apellido" class="form-control" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Edad:</label>
+                                <input type="number" name="edad" placeholder="Ingresar Edad" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">DNI:</label>
+                                <input type="text" name="dni" placeholder="Ingresar DNI" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Trabajo:</label>
+                                <input type="text" name="trabajo" placeholder="Ingresar Trabajo" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Sueldo:</label>
+                                <input type="number" name="sueldo" placeholder="Ingresar Sueldo" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Teléfono:</label>
+                                <input type="text" name="telefono" placeholder="Ingresar Teléfono" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Dirección:</label>
+                                <input type="text" name="direccion" placeholder="Ingresar Dirección" class="form-control">
+                            </div>
+
+
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

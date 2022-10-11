@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navigation') %>
+
+  <div class="container">
+    <div class="row my-5">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                  <h2>Agenda</h2>
+                    <form action="/add-n" method="POST"> <!--Manda los datos del formulario-->
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="Insertar Título" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" cols="80" class="form-control" placeholder="Insertar Descripción"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+        <script>
+          var valor = true
+          function activar() {
+            var uno = document.getElementById('onn');
+            valor?uno.innerHTML = `<i class="far fa-square"></i>`:uno.innerHTML= `<i class="fas fa-check-square"></i>`;
+            valor=!valor
+          }
+          
+          </script>
+
+          
+        <!--LIST-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover table-striped table-light">
+                <thead>
+                    <th>N°</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Operación</th>
+                </thead>
+
+                <tbody>
+                    <% for(var i=0; i < tasks.length; i++) { %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= tasks[i].title %></td>
+                            <td><%= tasks[i].description %></td>
+                            <td class="text-center">
+                                <a href="/turn/<%= tasks[i]._id %>" id="onn" class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark' %> btn-sm" data-toggle="tooltip" data-placement="top" title="Terminado/No terminado" onclick="activar()">
+                                  <i class="fas fa-check-square"></i>
+                                
+                                </a>
+                                <a href="/delete-n/<%= tasks[i]._id %>" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Borrar"><i class="fas fa-trash"></i></a>
+                                <a href="/edit-n/<%= tasks[i]._id %>" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                            </td>
+                        </tr>
+
+                    <% } %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

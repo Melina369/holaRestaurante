@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Empleado</title>
+    <%- include('partials/head')%>
+   </head>
+<body>
+    <%- include('partials/navigation')%>
+
+    <div class="container">
+        <div class="row my-5">
+            <!--FORM-->
+            <div class="col-md-5 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Editar Empleado</h1>
+                        <form action="/edit/<%= empleado._id %>" method="POST"> <!--Manda los datos del formulario-->
+                            <div class="form-group">
+                                <!--le paso los datos del titulo y la descripcion que quiero editar desde node -->
+                                <label for="" class="form-label">Nombre:</label>
+                                <input type="text" name="nombre" placeholder="Nombre" class="form-control" value="<%= empleado.nombre %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Apellido</label>
+                                <input type="text" name="apellido" placeholder="Apellido" class="form-control" value="<%= empleado.apellido %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Edad:</label>
+                                <input type="number" name="edad" placeholder="Edad" class="form-control" value="<%= empleado.edad %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">DNI:</label>
+                                <input type="text" name="dni" placeholder="DNI" class="form-control" value="<%= empleado.dni %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Trabajo:</label>
+                                <input type="text" name="trabajo" placeholder="Trabajo" class="form-control" value="<%= empleado.trabajo %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Sueldo:</label>
+                                <input type="number" name="sueldo" placeholder="Sueldo" class="form-control" value="<%= empleado.sueldo %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Teléfono:</label>
+                                <input type="text" name="telefono" placeholder="Teléfono" class="form-control" value="<%= empleado.telefono %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label">Dirección:</label>
+                                <input type="text" name="direccion" placeholder="Dirección" class="form-control" value="<%= empleado.direccion %>">
+                            </div>
+                            
+ 
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                            </div>
+
+                            <div class=" my-2">
+                                <a href="/empleados" class="btn btn-success btn-block"> <i class="fas fa-list"></i>
+                                    Ver Lista</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

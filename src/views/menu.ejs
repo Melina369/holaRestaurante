@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Menu </title>
+    <link rel="stylesheet" href="../public/css/menu.css">
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navigation') %>
+
+
+        <div class="container text-center">
+            <div class="row my-5 d-flex justify-content-center">
+
+                <div class="col-md-12">
+                    <div class="mb-2 d-flex justify-content-end">
+                        <a href="/nuevo-menu" class="btn btn-info">+ Nuevo</a>
+                    </div>                
+                </div>
+
+                <!--LIST-->
+                <div class="col-md-6">
+                    <table class="table  caption-top table-bordered table-hover table-striped table-secondary">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Pastas</h4>
+                            </div>
+                        </div>
+                        <thead>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Operación</th>
+                        </thead>
+
+                        <tbody>
+                            <% for(var i=0; i < comidas.length; i++) { %>
+                                <% if (comidas[i].tipo==="Pasta" ) { %>
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= comidas[i].nombre %>
+                                        </td>
+                                        <td>
+                                            <%= comidas[i].precio %>
+                                        </td>
+                                        <td>
+                                            <a href="/delete-m/<%= comidas[i]._id %>"
+                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Borrar"><i class="fas fa-trash"></i></a>
+                                            <a href="/edit-m/<%= comidas[i]._id %>"
+                                                class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--bebidas-->
+
+                <div class="col-md-6">
+                    <table class="table  caption-top table-bordered table-hover table-striped table-secondary">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Bebidas</h4>
+                            </div>
+                        </div>
+                        <thead>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Operación</th>
+                        </thead>
+
+                        <tbody>
+                            <% for(var i=0; i < comidas.length; i++) { %>
+                                <% if (comidas[i].tipo==="Bebida" ) { %>
+                                    <tr>
+                                        <td>
+                                            <%= i+1 %>
+                                        </td>
+                                        <td>
+                                            <%= comidas[i].nombre %>
+                                        </td>
+                                        <td>
+                                            <%= comidas[i].precio %>
+                                        </td>
+                                        <td>
+                                            <a href="/delete-m/<%= comidas[i]._id %>"
+                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Borrar"><i class="fas fa-trash"></i></a>
+                                            <a href="/edit-m/<%= comidas[i]._id %>"
+                                                class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </div>
+        </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navigation') %>
+    
+    <div class="container text-center">
+        <div class="row my-5">
+
+            <div class="col-md-12">
+                <div class="mb-2 d-flex justify-content-end">
+                    <a href="/empleado" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Nuevo empleado"><i class="fas fa-user-plus"></i> Nuevo</a>
+                </div>
+            </div>
+            
+            <!--LIST-->
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover table-striped table-secondary">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Registro de Empleados</h4>
+                        </div>
+                    </div>          
+            
+                    <thead>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>DNI</th>
+                        <th>Trabajo</th>
+                        <th>Sueldo</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Operación</th>
+                    </thead>
+
+                    <tbody>
+                        <% for(var i=0; i < empleados.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i+1 %>
+                                </td>
+                                <td>
+                                    <%= empleados[i].nombre %>
+                                </td>
+                                <td>
+                                    <%= empleados[i].apellido %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].edad %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].dni %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].trabajo %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].sueldo %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].telefono %>
+                                </td>
+
+                                <td>
+                                    <%= empleados[i].direccion %>
+                                </td>
+
+                                <td>
+                                    <a href="/delete/<%= empleados[i]._id %>" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Borrar"><i class="fas fa-trash"></i></a> 
+                                    <a href="/edit/<%= empleados[i]._id %>" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>

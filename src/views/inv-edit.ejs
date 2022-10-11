@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <%- include('partials/navigation') %>
+
+    <div class="container my-5">
+        <div class="row">
+            <!--FORM-->
+            <div class="col-md-5 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/edit-inv/<%= inventario._id %>" method="POST"> <!--Manda los datos del formulario-->
+                            <h3>Editar Registro:</h3>
+                            <div class="form-group">
+                                <!--le paso los datos del titulo y la descripcion que quiero editar desde node -->
+                                <label for="" class="form-label">Producto:</label>
+                                <input type="text" name="nombre" placeholder="Insertar Nombre" class="form-control" value="<%= inventario.nombre %>">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="" class="form-label">Marca:</label>
+                                <input type="text" name="marca" placeholder="Insertar Marca" class="form-control" value="<%= inventario.marca %>">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="" class="form-label">Precio:</label>
+                                <input type="text" name="precio" placeholder="Insertar Precio" class="form-control" value="<%= inventario.precio %>">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="" class="form-label">Problemas:</label>
+                                <input type="text" name="problemas" placeholder="Describir problemas" class="form-control" value="<%= inventario.problemas %>">
+                            </div>
+    
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                            </div>
+
+                            <div class=" my-2">
+                                <a href="/inventario" class="btn btn-success btn-block"> <i class="fas fa-list"></i>
+                                    Ver Lista</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
